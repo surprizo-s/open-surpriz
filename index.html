@@ -1,128 +1,84 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Open Surprise ♡</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Surprise ♡</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="noise"></div>
+    <div class="background-glow"></div>
 
-  <!-- صفحه اول -->
-  <section class="intro" id="intro">
+    <main class="container">
 
-    <div class="glow glow-one"></div>
-    <div class="glow glow-two"></div>
+        <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
 
-    <div class="intro-content">
+        <h1>
+            OPEN
+            <span>SURPRISE</span>
+        </h1>
 
-      <p class="eyebrow">
-        A little something for you
-      </p>
+        <p class="subtitle">
+            There is something waiting for you.<br>
+            Take a breath... and open it.
+        </p>
 
-      <h1>
-        OPEN
-        <span>SURPRISE</span>
-      </h1>
+        <button id="openBtn" class="open-btn">
+            <span class="small-text">TAP TO REVEAL</span>
+            <span>OPEN SURPRISE</span>
+            <strong>↗</strong>
+        </button>
 
-      <p class="intro-text">
-        There is something waiting for you.<br>
-        Take a breath... and open it.
-      </p>
-
-      <button id="openBtn" class="open-btn">
-        <span>OPEN SURPRISE</span>
-        <b>↗</b>
-      </button>
-
-      <p class="hint">
-        tap to reveal
-      </p>
-
-    </div>
-
-  </section>
+    </main>
 
 
-  <!-- صفحه سورپرایز -->
-  <section class="surprise" id="surprise">
+    <!-- SURPRISE -->
+    <section id="surprise" class="surprise hidden">
+
+        <div class="heart">♥</div>
+
+        <p class="eyebrow">THIS IS FOR YOU</p>
+
+        <h2>
+            You are<br>
+            <span>Special.</span>
+        </h2>
+
+        <div class="photo-wrapper">
+            <img
+                src="images/surprise.jpg"
+                alt="Our special moment"
+                onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');"
+            >
+        </div>
+
+        <div class="message">
+            <p>
+                بعضی آدم‌ها وارد زندگی ما میشن
+                و همه چیز رو قشنگ‌تر می‌کنن.
+            </p>
+
+            <p>
+                این سورپرایز کوچیک فقط برای اینه که
+                بدونی چقدر برام خاصی. ❤️
+            </p>
+
+            <span>With love ♡</span>
+        </div>
+
+        <button id="musicBtn" class="music-btn">
+            ♫ PLAY OUR SONG
+        </button>
+
+        <audio id="music" src="music/surprise.mp3"></audio>
+
+    </section>
 
     <div id="hearts"></div>
 
-    <div class="content">
-
-      <p class="eyebrow">
-        JUST FOR YOU ✦
-      </p>
-
-      <!-- عکس -->
-      <div class="photo-container">
-
-        <div class="photo-glow"></div>
-
-        <img
-          src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=85"
-          alt="Our memory"
-        >
-
-      </div>
-
-
-      <div class="message">
-
-        <p class="small-title">
-          I HAVE SOMETHING TO TELL YOU...
-        </p>
-
-        <h2>
-          You make ordinary
-          <br>
-          <em>moments</em>
-          feel special.
-        </h2>
-
-        <p id="typedMessage" class="typed"></p>
-
-      </div>
-
-
-      <!-- موزیک -->
-      <button id="musicBtn" class="music-btn">
-
-        <span class="music-icon">
-          ♫
-        </span>
-
-        <span id="musicText">
-          PLAY OUR SONG
-        </span>
-
-      </button>
-
-
-      <p class="final-note">
-        Made with a little love, just for you ♡
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <audio id="music" src="music/surprise.mp3"></audio>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
-```
