@@ -1,164 +1,76 @@
-```javascript
 const openBtn = document.getElementById("openBtn");
-
-const intro = document.getElementById("intro");
-
 const surprise = document.getElementById("surprise");
-
-const typedMessage = document.getElementById("typedMessage");
-
+const musicBtn = document.getElementById("musicBtn");
+const music = document.getElementById("music");
 const hearts = document.getElementById("hearts");
 
-const music = document.getElementById("music");
+openBtn.addEventListener("click", function () {
 
-const musicBtn = document.getElementById("musicBtn");
+    openBtn.disabled = true;
 
-const musicText = document.getElementById("musicText");
+    document.querySelector(".container").style.animation =
+        "reveal 0.8s ease reverse forwards";
 
+    setTimeout(function () {
 
-/* پیام اصلی */
+        document.querySelector(".container").style.display = "none";
 
-const message =
-  "شاید همیشه بهت نگم، ولی بودنت توی زندگی من باعث میشه حتی روزهای معمولی هم یه جور خاص قشنگ بشن. این سورپرایز کوچیک فقط یه یادآوریه که بدونی چقدر برام خاصی. ❤️";
+        surprise.classList.remove("hidden");
 
+        createHearts();
 
-/* باز کردن سورپرایز */
-
-openBtn.addEventListener("click", () => {
-
-  openBtn.classList.add("opening");
-
-  setTimeout(() => {
-
-    intro.classList.add("hide");
-
-    surprise.classList.add("show");
-
-    createHearts(40);
-
-    typeMessage();
-
-  }, 650);
-
+    }, 700);
 });
 
 
-/* افکت تایپ متن */
-
-function typeMessage() {
-
-  let index = 0;
-
-  const typing = setInterval(() => {
-
-    typedMessage.textContent += message[index];
-
-    index++;
-
-    if (index >= message.length) {
-
-      clearInterval(typing);
-
-    }
-
-  }, 35);
-
-}
-
-
-/* ساخت قلب ها */
-
-function createHearts(amount) {
-
-  const symbols = [
-    "♥",
-    "♡",
-    "✦",
-    "✧"
-  ];
-
-  for (let i = 0; i < amount; i++) {
-
-    const heart = document.createElement("span");
-
-    heart.className = "heart";
-
-    heart.textContent =
-      symbols[
-        Math.floor(
-          Math.random() * symbols.length
-        )
-      ];
-
-    heart.style.left =
-      Math.random() * 100 + "%";
-
-    heart.style.animationDuration =
-      3 + Math.random() * 4 + "s";
-
-    heart.style.animationDelay =
-      Math.random() * 1.5 + "s";
-
-    heart.style.fontSize =
-      10 + Math.random() * 18 + "px";
-
-    hearts.appendChild(heart);
-
-    setTimeout(() => {
-
-      heart.remove();
-
-    }, 8000);
-
-  }
-
-}
-
-
-/* موزیک */
-
-musicBtn.addEventListener("click", async () => {
-
-  try {
+musicBtn.addEventListener("click", function () {
 
     if (music.paused) {
 
-      await music.play();
-
-      musicBtn.classList.add("playing");
-
-      musicText.textContent =
-        "PAUSE OUR SONG";
+        music.play()
+            .then(function () {
+                musicBtn.innerHTML = "♫ PAUSE OUR SONG";
+            })
+            .catch(function () {
+                musicBtn.innerHTML = "♫ MUSIC NOT FOUND";
+            });
 
     } else {
 
-      music.pause();
+        music.pause();
 
-      musicBtn.classList.remove("playing");
-
-      musicText.textContent =
-        "PLAY OUR SONG";
-
+        musicBtn.innerHTML = "♫ PLAY OUR SONG";
     }
-
-  } catch (error) {
-
-    musicText.textContent =
-      "ADD YOUR SONG";
-
-  }
-
 });
 
 
-/* پایان موزیک */
+function createHearts() {
 
-music.addEventListener("ended", () => {
+    for (let i = 0; i < 25; i++) {
 
-  musicBtn.classList.remove("playing");
+        setTimeout(function () {
 
-  musicText.textContent =
-    "PLAY OUR SONG";
+            const heart = document.createElement("div");
 
-});
-```
+            heart.className = "floating-heart";
+
+            heart.innerHTML = "♥";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            hearts.appendChild(heart);
+
+            setTimeout(function () {
+                heart.remove();
+            }, 6000);
+
+        }, i * 120);
+    }
+}
