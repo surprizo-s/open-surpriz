@@ -1,84 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Surprise ♡</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+```html
+<div class="background-glow"></div>
 
-<body>
+<main class="container">
 
-    <div class="background-glow"></div>
+    <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
 
-    <main class="container">
+    <h1>
+        OPEN
+        <span>SURPRISE</span>
+    </h1>
 
-        <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+    <p class="subtitle">
+        There is something waiting for you.<br>
+        Take a breath... and open it.
+    </p>
 
-        <h1>
-            OPEN
-            <span>SURPRISE</span>
-        </h1>
+    <button id="openBtn" class="open-btn">
+        <span class="small-text">TAP TO REVEAL</span>
+        <span>OPEN SURPRISE</span>
+        <strong>↗</strong>
+    </button>
 
-        <p class="subtitle">
-            There is something waiting for you.<br>
-            Take a breath... and open it.
+</main>
+
+
+<!-- SURPRISE -->
+<section id="surprise" class="surprise hidden">
+
+    <div class="heart">♥</div>
+
+    <p class="eyebrow">THIS IS FOR YOU</p>
+
+    <h2>
+        You are<br>
+        <span>Special.</span>
+    </h2>
+
+    <div class="photo-wrapper">
+        <img
+            src="images/surprise.jpg"
+            alt="Our special moment"
+            onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');"
+        >
+    </div>
+
+    <div class="message">
+        <p>
+            بعضی آدم‌ها وارد زندگی ما میشن
+            و همه چیز رو قشنگ‌تر می‌کنن.
         </p>
 
-        <button id="openBtn" class="open-btn">
-            <span class="small-text">TAP TO REVEAL</span>
-            <span>OPEN SURPRISE</span>
-            <strong>↗</strong>
-        </button>
+        <p>
+            این سورپرایز کوچیک فقط برای اینه که
+            بدونی چقدر برام خاصی. ❤️
+        </p>
 
-    </main>
+        <span>With love ♡</span>
+    </div>
 
+    <button id="musicBtn" class="music-btn">
+        ♫ PLAY OUR SONG
+    </button>
 
-    <!-- SURPRISE -->
-    <section id="surprise" class="surprise hidden">
+    <!-- Google Drive Music -->
+    <audio
+        id="music"
+        preload="auto"
+        loop
+    >
+        <source
+            src="https://drive.google.com/uc?export=download&id=1aHAutHYgvhnbMoBoa1uHsGY0utUjpzCC"
+            type="audio/mpeg"
+        >
+    </audio>
 
-        <div class="heart">♥</div>
+</section>
 
-        <p class="eyebrow">THIS IS FOR YOU</p>
+<div id="hearts"></div>
 
-        <h2>
-            You are<br>
-            <span>Special.</span>
-        </h2>
-
-        <div class="photo-wrapper">
-            <img
-                src="images/surprise.jpg"
-                alt="Our special moment"
-                onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');"
-            >
-        </div>
-
-        <div class="message">
-            <p>
-                بعضی آدم‌ها وارد زندگی ما میشن
-                و همه چیز رو قشنگ‌تر می‌کنن.
-            </p>
-
-            <p>
-                این سورپرایز کوچیک فقط برای اینه که
-                بدونی چقدر برام خاصی. ❤️
-            </p>
-
-            <span>With love ♡</span>
-        </div>
-
-        <button id="musicBtn" class="music-btn">
-            ♫ PLAY OUR SONG
-        </button>
-
-        <audio id="music" src="music/surprise.mp3"></audio>
-
-    </section>
-
-    <div id="hearts"></div>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+<script src="script.js"></script>
+```
